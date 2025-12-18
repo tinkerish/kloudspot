@@ -101,7 +101,9 @@ const Overview = () => {
   const occupancyLiveData = useMemo(() => {
     if (!occupancyMetrics) return null;
     return {
-      value: liveOccupany || occupancyMetrics.todayAvg,
+      value: liveOccupany
+        ? Math.trunc(liveOccupany)
+        : Math.trunc(occupancyMetrics.todayAvg || 0),
       percentChange: occupancyMetrics.percentChange,
     };
   }, [occupancyMetrics, liveOccupany]);
@@ -142,7 +144,7 @@ const Overview = () => {
         display: "flex",
         flexDirection: "column",
         gap: "1.5rem",
-        minWidth: "700px"
+        minWidth: "700px",
       }}
     >
       <Typography
