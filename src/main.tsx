@@ -16,6 +16,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import CrowdEntriesRoute from "./components/CrowdEntriesWrapper.tsx";
 import AppLayout from "./layout/AppLayout.tsx";
+import Error from "./pages/Error.tsx";
 const queryClient = new QueryClient();
 
 const routes = createBrowserRouter(
@@ -31,6 +32,7 @@ const routes = createBrowserRouter(
           </Route>
         </Route>
       </Route>
+      <Route path="*" element={<Error />} />
     </>
   )
 );
